@@ -6,15 +6,15 @@
  */
 package org.deri.cqels.lang.cqels;
 import org.deri.cqels.engine.*;
-import com.hp.hpl.jena.graph.* ;
-import com.hp.hpl.jena.query.* ;
-import com.hp.hpl.jena.sparql.core.Var ;
-import com.hp.hpl.jena.sparql.syntax.* ;
-import com.hp.hpl.jena.sparql.expr.* ;
-import com.hp.hpl.jena.sparql.path.* ;
-import com.hp.hpl.jena.sparql.expr.aggregate.* ;
-import com.hp.hpl.jena.update.* ;
-import com.hp.hpl.jena.sparql.modify.request.* ;
+import org.apache.jena.graph.* ;
+import org.apache.jena.query.* ;
+import org.apache.jena.sparql.core.Var ;
+import org.apache.jena.sparql.syntax.* ;
+import org.apache.jena.sparql.expr.* ;
+import org.apache.jena.sparql.path.* ;
+import org.apache.jena.sparql.expr.aggregate.* ;
+import org.apache.jena.update.* ;
+import org.apache.jena.sparql.modify.request.* ;
 
 /** Token Manager. */
 public class CQELSParserTokenManager implements CQELSParserConstants

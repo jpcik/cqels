@@ -4,7 +4,7 @@ import org.deri.cqels.data.Mapping;
 import org.deri.cqels.engine.iterator.MappingIterMatch;
 import org.deri.cqels.engine.iterator.MappingIterator;
 import org.deri.cqels.engine.iterator.MappingNestedLoopEqJoin;
-import com.hp.hpl.jena.sparql.algebra.op.OpJoin;
+import org.apache.jena.sparql.algebra.op.OpJoin;
 
 /**
  * This class implements a binary router processing the join operator

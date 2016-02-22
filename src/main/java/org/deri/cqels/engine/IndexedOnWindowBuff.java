@@ -12,9 +12,9 @@ import org.deri.cqels.engine.iterator.MappingIterator;
 import org.deri.cqels.engine.iterator.NullMappingIter;
 import org.deri.cqels.util.Utils;
 
-import com.hp.hpl.jena.sparql.algebra.Op;
-import com.hp.hpl.jena.sparql.core.Quad;
-import com.hp.hpl.jena.sparql.core.Var;
+import org.apache.jena.sparql.algebra.Op;
+import org.apache.jena.sparql.core.Quad;
+import org.apache.jena.sparql.core.Var;
 import com.sleepycat.bind.tuple.LongBinding;
 import com.sleepycat.bind.tuple.TupleInput;
 import com.sleepycat.bind.tuple.TupleOutput;

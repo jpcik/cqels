@@ -7,10 +7,10 @@ import org.deri.cqels.data.EnQuad;
 import org.deri.cqels.data.Mapping;
 import org.deri.cqels.engine.iterator.MappingIterator;
 import org.deri.cqels.lang.cqels.OpStream;
-import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.sparql.algebra.op.OpTriple;
-import com.hp.hpl.jena.sparql.core.Quad;
-import com.hp.hpl.jena.sparql.core.Var;
+import org.apache.jena.graph.Node;
+import org.apache.jena.sparql.algebra.op.OpTriple;
+import org.apache.jena.sparql.core.Quad;
+import org.apache.jena.sparql.core.Var;
 
 /**
  * This class implements router that it data buffer is a window

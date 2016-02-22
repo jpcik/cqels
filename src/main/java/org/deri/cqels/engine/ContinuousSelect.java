@@ -2,7 +2,7 @@ package org.deri.cqels.engine;
 
 import java.util.ArrayList;
 import org.deri.cqels.data.Mapping;
-import com.hp.hpl.jena.query.Query;
+import org.apache.jena.query.Query;
 
 /**
  * This class acts as a router standing in the root of the tree if the query is

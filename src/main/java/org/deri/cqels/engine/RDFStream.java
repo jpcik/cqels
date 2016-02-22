@@ -1,7 +1,8 @@
 package org.deri.cqels.engine;
 
-import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.graph.Triple;
+import org.apache.jena.graph.Node;
+import org.apache.jena.graph.NodeFactory;
+import org.apache.jena.graph.Triple;
 /** 
  * @author		Danh Le Phuoc
  * @organization DERI Galway, NUIG, Ireland  www.deri.ie
@@ -12,7 +13,7 @@ public abstract class RDFStream {
 	Node streamURI;
 	ExecContext context;
 	public RDFStream(ExecContext context, String uri) {
-		streamURI=Node.createURI(uri);
+		streamURI=NodeFactory.createURI(uri);
 		this.context=context;
 	}
 	
@@ -27,7 +28,7 @@ public abstract class RDFStream {
 	public void stream(Triple t){ stream(t.getSubject(),t.getPredicate(),t.getObject()); }
 	
 	public static  Node n(String st){
-		return Node.createURI(st);
+		return NodeFactory.createURI(st);
 	}
 	
 	public abstract void stop();

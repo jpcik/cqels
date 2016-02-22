@@ -3,8 +3,8 @@ package org.deri.cqels.engine.iterator;
 import org.deri.cqels.data.Mapping;
 import org.deri.cqels.data.Mapping2Binding;
 import org.deri.cqels.engine.ExecContext;
-import com.hp.hpl.jena.sparql.expr.ExprException;
-import com.hp.hpl.jena.sparql.expr.ExprList;
+import org.apache.jena.sparql.expr.ExprException;
+import org.apache.jena.sparql.expr.ExprList;
 import org.apache.jena.atlas.logging.Log;
 
 public class MappingIterFilterExpr extends MappingIterProcessBinding {

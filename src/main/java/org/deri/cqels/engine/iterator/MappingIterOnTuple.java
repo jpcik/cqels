@@ -6,8 +6,8 @@ import org.deri.cqels.data.Mapping;
 import org.deri.cqels.data.MappingWrapped;
 import org.deri.cqels.data.TupleMapping;
 import org.deri.cqels.engine.ExecContext;
-import com.hp.hpl.jena.sparql.core.Var;
-import com.hp.hpl.jena.tdb.store.NodeId;
+import org.apache.jena.sparql.core.Var;
+import org.apache.jena.tdb.store.NodeId;
 import org.apache.jena.atlas.lib.Tuple;
 
 public class MappingIterOnTuple extends MappingIter {

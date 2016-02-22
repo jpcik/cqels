@@ -1,7 +1,7 @@
 package org.deri.cqels.data;
 
-import com.hp.hpl.jena.sparql.core.Var;
-import com.hp.hpl.jena.tdb.store.NodeId;
+import org.apache.jena.sparql.core.Var;
+import org.apache.jena.tdb.store.NodeId;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.apache.jena.atlas.iterator.IteratorConcat;

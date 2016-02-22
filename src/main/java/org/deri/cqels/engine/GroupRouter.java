@@ -6,10 +6,10 @@ import org.deri.cqels.data.ProjectMapping;
 import org.deri.cqels.engine.iterator.MappingIterOnQueryIter;
 import org.deri.cqels.engine.iterator.MappingIterator;
 import org.deri.cqels.engine.iterator.QueryIterOnMappingIter;
-import com.hp.hpl.jena.sparql.algebra.op.OpGroup;
-import com.hp.hpl.jena.sparql.core.VarExprList;
-import com.hp.hpl.jena.sparql.engine.iterator.QueryIterGroup;
-import com.hp.hpl.jena.sparql.expr.ExprAggregator;
+import org.apache.jena.sparql.algebra.op.OpGroup;
+import org.apache.jena.sparql.core.VarExprList;
+import org.apache.jena.sparql.engine.iterator.QueryIterGroup;
+import org.apache.jena.sparql.expr.ExprAggregator;
 
 /**
  * This class implements the router with group-by operator

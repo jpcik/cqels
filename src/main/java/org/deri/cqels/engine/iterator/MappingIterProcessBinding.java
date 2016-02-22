@@ -5,8 +5,9 @@ import java.util.NoSuchElementException;
 import org.deri.cqels.data.Mapping;
 import org.deri.cqels.engine.ExecContext;
 
-import com.hp.hpl.jena.sparql.ARQInternalErrorException;
-import com.hp.hpl.jena.sparql.util.Utils;
+import org.apache.jena.sparql.ARQInternalErrorException;
+//import org.apache.jena.sparql.util.Utils;
+import org.apache.jena.atlas.lib.Lib;
 
 public abstract class MappingIterProcessBinding extends MappingIter1 {
 	
@@ -35,7 +36,7 @@ public abstract class MappingIterProcessBinding extends MappingIter1 {
 
         // Null iterator.
         if (getInput() == null)
-            throw new ARQInternalErrorException(Utils.className(this)+": Null iterator");
+            throw new ARQInternalErrorException(Lib.className(this)+": Null iterator");
 
         while (getInput().hasNext()) {
             // Skip forward until a binding to return is found. 

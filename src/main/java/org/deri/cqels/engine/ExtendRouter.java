@@ -4,8 +4,8 @@ import org.deri.cqels.data.ExtendMapping;
 import org.deri.cqels.data.Mapping;
 import org.deri.cqels.engine.iterator.MappingIterator;
 import org.deri.cqels.engine.iterator.NullMappingIter;
-import com.hp.hpl.jena.sparql.algebra.op.OpExtend;
-import com.hp.hpl.jena.sparql.core.VarExprList;
+import org.apache.jena.sparql.algebra.op.OpExtend;
+import org.apache.jena.sparql.core.VarExprList;
 
 public class ExtendRouter extends OpRouter1 {
 

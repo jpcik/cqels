@@ -6,10 +6,10 @@ import com.espertech.esper.client.EPServiceProvider;
 import com.espertech.esper.client.EPServiceProviderManager;
 import com.espertech.esper.client.EPStatement;
 
-import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.graph.Triple;
-import com.hp.hpl.jena.sparql.core.Quad;
-import com.hp.hpl.jena.tdb.store.NodeId;
+import org.apache.jena.graph.Node;
+import org.apache.jena.graph.Triple;
+import org.apache.jena.sparql.core.Quad;
+import org.apache.jena.tdb.store.NodeId;
 /** 
  * This class implements CQELS engine. It has an Esper Service provider and context belonging to
  * 

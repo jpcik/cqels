@@ -5,10 +5,10 @@
 package org.deri.cqels.data;
 import java.util.Iterator ;
 
-import com.hp.hpl.jena.graph.Node ;
-import com.hp.hpl.jena.sparql.core.Var ;
-import com.hp.hpl.jena.sparql.engine.binding.Binding;
-import com.hp.hpl.jena.sparql.engine.binding.BindingBase;
+import org.apache.jena.graph.Node ;
+import org.apache.jena.sparql.core.Var ;
+import org.apache.jena.sparql.engine.binding.Binding;
+import org.apache.jena.sparql.engine.binding.BindingBase;
 
 /** A binding helper that can be a key in a Set or Map.
  *  Changing the key binding while in such a structure is not supported.  

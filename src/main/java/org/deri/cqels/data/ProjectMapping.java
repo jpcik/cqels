@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.deri.cqels.engine.ExecContext;
 
-import com.hp.hpl.jena.sparql.core.Var;
+import org.apache.jena.sparql.core.Var;
 
 public class ProjectMapping extends MappingBase {
 	Mapping mapping;

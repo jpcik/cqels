@@ -1,6 +1,6 @@
 package org.deri.cqels.data;
 
-import com.hp.hpl.jena.sparql.core.Var;
+import org.apache.jena.sparql.core.Var;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;

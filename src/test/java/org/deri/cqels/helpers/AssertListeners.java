@@ -1,6 +1,6 @@
 package org.deri.cqels.helpers;
 
-import com.hp.hpl.jena.graph.Triple;
+import org.apache.jena.graph.Triple;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

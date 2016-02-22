@@ -1,11 +1,12 @@
 package org.deri.cqels;
 
-import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
-import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.graph.Triple;
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.ResourceFactory;
+import org.apache.jena.datatypes.xsd.XSDDatatype;
+import org.apache.jena.graph.Node;
+import org.apache.jena.graph.NodeFactory;
+import org.apache.jena.graph.Triple;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.ResourceFactory;
 import static com.jayway.awaitility.Awaitility.await;
 import com.jayway.awaitility.Duration;
 import java.io.File;
@@ -20,6 +21,7 @@ import org.deri.cqels.helpers.AssertListeners.ConstructAssertListener;
 import org.deri.cqels.helpers.AssertListeners.SelectAssertListener;
 import org.deri.cqels.helpers.DefaultRDFStream;
 import org.deri.cqels.helpers.Helpers;
+
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -102,9 +104,9 @@ public class UnregisterQueryTest {
         query.register(listener);
 
         stream.stream(new Triple(
-                Node.createURI("http://dbpedia.org/ontology/author"),
-                Node.createURI("http://example.org/ontology#hasValue"),
-                Node.createLiteral("1")));
+        		NodeFactory.createURI("http://dbpedia.org/ontology/author"),
+        		NodeFactory.createURI("http://example.org/ontology#hasValue"),
+        		NodeFactory.createLiteral("1")));
         List<Mapping> mappings = await().until(listener, hasSize(1));
         List<Node> nodes = Helpers.toNodeList(context, mappings.get(0));
 
@@ -225,17 +227,17 @@ public class UnregisterQueryTest {
         List<Triple> graph = await().until(listener, hasSize(3));
         
         assertTrue(graph.contains(new Triple(
-                Node.createURI("http://purl.org/meters/mercury230_14759537/alerts/2014-07-16T05:50:20.890Z"),
-                Node.createURI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),
-                Node.createURI("http://purl.org/daafse/alerts#TooHighVoltageValue"))));
+        		NodeFactory.createURI("http://purl.org/meters/mercury230_14759537/alerts/2014-07-16T05:50:20.890Z"),
+        		NodeFactory.createURI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),
+        		NodeFactory.createURI("http://purl.org/daafse/alerts#TooHighVoltageValue"))));
         assertTrue(graph.contains(new Triple(
-                Node.createURI("http://purl.org/meters/mercury230_14759537/alerts/2014-07-16T05:50:20.890Z"),
-                Node.createURI("http://www.loa-cnr.it/ontologies/DUL.owl#hasEventDate"),
-                Node.createLiteral("2014-07-16T05:50:20.890Z", XSDDatatype.XSDdateTime))));
+        		NodeFactory.createURI("http://purl.org/meters/mercury230_14759537/alerts/2014-07-16T05:50:20.890Z"),
+        		NodeFactory.createURI("http://www.loa-cnr.it/ontologies/DUL.owl#hasEventDate"),
+        		NodeFactory.createLiteral("2014-07-16T05:50:20.890Z", XSDDatatype.XSDdateTime))));
         assertTrue(graph.contains(new Triple(
-                Node.createURI("http://purl.org/meters/mercury230_14759537/alerts/2014-07-16T05:50:20.890Z"),
-                Node.createURI("http://www.loa-cnr.it/ontologies/DUL.owl#involvesAgent"),
-                Node.createURI("http://purl.org/meters/mercury230_14759537"))));
+        		NodeFactory.createURI("http://purl.org/meters/mercury230_14759537/alerts/2014-07-16T05:50:20.890Z"),
+        		NodeFactory.createURI("http://www.loa-cnr.it/ontologies/DUL.owl#involvesAgent"),
+        		NodeFactory.createURI("http://purl.org/meters/mercury230_14759537"))));
         
         context.unregisterConstruct(query);
         

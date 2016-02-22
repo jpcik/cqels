@@ -9,8 +9,8 @@ import java.util.Set;
 import org.deri.cqels.engine.ExecContext;
 import org.deri.cqels.engine.OpRouter;
 
-import com.hp.hpl.jena.sparql.core.Var;
-import com.hp.hpl.jena.util.iterator.NullIterator;
+import org.apache.jena.sparql.core.Var;
+import org.apache.jena.util.iterator.NullIterator;
 
 public  abstract class MappingBase implements Mapping {
 	static int  count = 0;

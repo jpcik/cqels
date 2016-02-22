@@ -6,8 +6,8 @@ import org.deri.cqels.data.Mapping;
 import org.deri.cqels.engine.ExecContext;
 import org.deri.cqels.util.Utils;
 
-import com.hp.hpl.jena.sparql.core.Quad;
-import com.hp.hpl.jena.sparql.core.Var;
+import org.apache.jena.sparql.core.Quad;
+import org.apache.jena.sparql.core.Var;
 import com.sleepycat.je.CursorConfig;
 import com.sleepycat.je.Database;
 import com.sleepycat.je.DatabaseEntry;

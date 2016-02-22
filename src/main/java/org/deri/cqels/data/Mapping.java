@@ -6,8 +6,8 @@ import java.util.Map;
 import org.deri.cqels.engine.ExecContext;
 import org.deri.cqels.engine.OpRouter;
 
-import com.hp.hpl.jena.sparql.algebra.Op;
-import com.hp.hpl.jena.sparql.core.Var;
+import org.apache.jena.sparql.algebra.Op;
+import org.apache.jena.sparql.core.Var;
 
 public interface Mapping extends Map<Var, Long>{
 	

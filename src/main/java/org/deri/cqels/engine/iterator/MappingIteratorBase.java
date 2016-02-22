@@ -2,10 +2,11 @@ package org.deri.cqels.engine.iterator;
 
 import java.util.NoSuchElementException;
 import org.deri.cqels.data.Mapping;
-import com.hp.hpl.jena.query.QueryCancelledException;
-import com.hp.hpl.jena.query.QueryException;
-import com.hp.hpl.jena.query.QueryFatalException;
-import com.hp.hpl.jena.sparql.util.Utils;
+import org.apache.jena.query.QueryCancelledException;
+import org.apache.jena.query.QueryException;
+import org.apache.jena.query.QueryFatalException;
+//import org.apache.jena.sparql.util.Utils;
+import org.apache.jena.atlas.lib.Lib;
 import org.apache.jena.atlas.logging.Log;
 
 public abstract class MappingIteratorBase implements MappingIterator {
@@ -40,8 +41,8 @@ public abstract class MappingIteratorBase implements MappingIterator {
 
     @Override
     public final void remove() {
-        Log.warn(this, "Call to QueryIterator.remove() : " + Utils.className(this) + ".remove");
-        throw new UnsupportedOperationException(Utils.className(this) + ".remove");
+        Log.warn(this, "Call to QueryIterator.remove() : " + Lib.className(this) + ".remove");
+        throw new UnsupportedOperationException(Lib.className(this) + ".remove");
     }
 
     @Override
@@ -55,16 +56,16 @@ public abstract class MappingIteratorBase implements MappingIterator {
                 if (abortIterator) {
                     throw new QueryCancelledException();
                 }
-                throw new NoSuchElementException(Utils.className(this));
+                throw new NoSuchElementException(Lib.className(this));
             }
 
             if (!hasNextMapping()) {
-                throw new NoSuchElementException(Utils.className(this));
+                throw new NoSuchElementException(Lib.className(this));
             }
 
             Mapping obj = moveToNextMapping();
             if (obj == null) {
-                throw new NoSuchElementException(Utils.className(this));
+                throw new NoSuchElementException(Lib.className(this));
             }
             if (requestingCancel && !finished) {
                 // But .cancel sets both requestingCancel and abortIterator

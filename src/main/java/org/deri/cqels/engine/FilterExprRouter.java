@@ -5,8 +5,8 @@ import org.deri.cqels.data.Mapping2Binding;
 import org.deri.cqels.data.MappingWrapped;
 import org.deri.cqels.engine.iterator.MappingIterFilterExpr;
 import org.deri.cqels.engine.iterator.MappingIterator;
-import com.hp.hpl.jena.sparql.algebra.op.OpFilter;
-import com.hp.hpl.jena.sparql.expr.ExprList;
+import org.apache.jena.sparql.algebra.op.OpFilter;
+import org.apache.jena.sparql.expr.ExprList;
 
 /**
  * This class implements the router with filter operator

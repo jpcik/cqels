@@ -3,10 +3,10 @@ package org.deri.cqels.engine.iterator;
 import org.deri.cqels.data.Mapping;
 import org.deri.cqels.data.Mapping2Binding;
 import org.deri.cqels.engine.ExecContext;
-import com.hp.hpl.jena.shared.PrefixMapping;
-import com.hp.hpl.jena.sparql.engine.QueryIterator;
-import com.hp.hpl.jena.sparql.engine.binding.Binding;
-import com.hp.hpl.jena.sparql.serializer.SerializationContext;
+import org.apache.jena.shared.PrefixMapping;
+import org.apache.jena.sparql.engine.QueryIterator;
+import org.apache.jena.sparql.engine.binding.Binding;
+import org.apache.jena.sparql.serializer.SerializationContext;
 import org.apache.jena.atlas.io.IndentedWriter;
 
 public class QueryIterOnMappingIter implements QueryIterator {

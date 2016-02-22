@@ -1,9 +1,9 @@
 package org.deri.cqels.data;
 
-import com.hp.hpl.jena.sparql.core.Var;
-import com.hp.hpl.jena.sparql.core.VarExprList;
-import com.hp.hpl.jena.sparql.expr.NodeValue;
-import com.hp.hpl.jena.sparql.function.FunctionEnvBase;
+import org.apache.jena.sparql.core.Var;
+import org.apache.jena.sparql.core.VarExprList;
+import org.apache.jena.sparql.expr.NodeValue;
+import org.apache.jena.sparql.function.FunctionEnvBase;
 import java.util.Iterator;
 import org.apache.jena.atlas.iterator.IteratorConcat;
 import org.deri.cqels.engine.ExecContext;

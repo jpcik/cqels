@@ -2,15 +2,15 @@ package org.deri.cqels.lang.cqels;
 
 import java.io.Reader;
 import java.io.StringReader;
-import com.hp.hpl.jena.query.Query;
-import com.hp.hpl.jena.query.QueryException;
-import com.hp.hpl.jena.query.QueryParseException;
-import com.hp.hpl.jena.query.Syntax;
-import com.hp.hpl.jena.shared.JenaException;
-import com.hp.hpl.jena.sparql.lang.SPARQLParser;
-import com.hp.hpl.jena.sparql.lang.ParserSPARQL11;
-import com.hp.hpl.jena.sparql.syntax.Element;
-import com.hp.hpl.jena.sparql.syntax.Template;
+import org.apache.jena.query.Query;
+import org.apache.jena.query.QueryException;
+import org.apache.jena.query.QueryParseException;
+import org.apache.jena.query.Syntax;
+import org.apache.jena.shared.JenaException;
+import org.apache.jena.sparql.lang.SPARQLParser;
+import org.apache.jena.sparql.lang.ParserSPARQL11;
+import org.apache.jena.sparql.syntax.Element;
+import org.apache.jena.sparql.syntax.Template;
 import org.apache.jena.atlas.logging.Log;
 
 public class ParserCQELS extends SPARQLParser {
@@ -73,12 +73,12 @@ public class ParserCQELS extends SPARQLParser {
             query.setStrict(true);
             parser.setQuery(query);
             action.exec(parser);
-        } catch (com.hp.hpl.jena.sparql.lang.arq.ParseException ex) {
+        } catch (org.apache.jena.sparql.lang.arq.ParseException ex) {
             throw new QueryParseException(ex.getMessage(),
                     ex.currentToken.beginLine,
                     ex.currentToken.beginColumn
             );
-        } catch (com.hp.hpl.jena.sparql.lang.arq.TokenMgrError tErr) {
+        } catch (org.apache.jena.sparql.lang.arq.TokenMgrError tErr) {
             // Last valid token : not the same as token error message - but this should not happen
             int col = parser.token.endColumn;
             int line = parser.token.endLine;

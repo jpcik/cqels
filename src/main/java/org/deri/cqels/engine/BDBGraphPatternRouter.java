@@ -1,16 +1,17 @@
 package org.deri.cqels.engine;
 
-import com.hp.hpl.jena.graph.Graph;
-import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.graph.Triple;
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.sparql.algebra.Op;
-import com.hp.hpl.jena.sparql.core.DatasetGraph;
-import com.hp.hpl.jena.sparql.core.Var;
-import com.hp.hpl.jena.sparql.engine.QueryIterator;
-import com.hp.hpl.jena.sparql.engine.binding.Binding;
-import com.hp.hpl.jena.sparql.sse.SSE;
+import org.apache.jena.graph.Graph;
+import org.apache.jena.graph.Node;
+import org.apache.jena.graph.NodeFactory;
+import org.apache.jena.graph.Triple;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.sparql.algebra.Op;
+import org.apache.jena.sparql.core.DatasetGraph;
+import org.apache.jena.sparql.core.Var;
+import org.apache.jena.sparql.engine.QueryIterator;
+import org.apache.jena.sparql.engine.binding.Binding;
+import org.apache.jena.sparql.sse.SSE;
 import com.sleepycat.bind.tuple.TupleInput;
 import com.sleepycat.bind.tuple.TupleOutput;
 import com.sleepycat.je.Database;
@@ -33,7 +34,7 @@ import org.deri.cqels.engine.iterator.MappingIterCursorByKey;
 import org.deri.cqels.engine.iterator.MappingIterCursorByRangeKey;
 import org.deri.cqels.engine.iterator.MappingIterator;
 import org.deri.cqels.engine.iterator.NullMappingIter;
-import org.linkeddatafragments.model.LinkedDataFragmentGraph;
+//import org.linkeddatafragments.model.LinkedDataFragmentGraph;
 /**
  * This class implements a router that its data mapping buffer is static
  * @author		Danh Le Phuoc
@@ -82,7 +83,7 @@ public class BDBGraphPatternRouter extends OpRouterBase {
      *
      * @param url url adress of SPARQL endpoint or TriplePatternFragments server
      * @see https://lists.w3.org/Archives/Public/public-hydra/2015Aug/0040.html
-     */
+     *//*
     private boolean isTPFServer(String url) {
         HttpClient client = new DefaultHttpClient();
         HttpGet get = new HttpGet(url);
@@ -94,35 +95,35 @@ public class BDBGraphPatternRouter extends OpRouterBase {
             Graph graph = mod.getGraph();
             
             Triple triple0 = new Triple(Node.ANY, 
-                    Node.createURI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), 
-                    Node.createURI("http://www.w3.org/ns/hydra/core#Collection"));
+                    NodeFactory.createURI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), 
+                    NodeFactory.createURI("http://www.w3.org/ns/hydra/core#Collection"));
             Triple triple1 = new Triple(Node.ANY, 
-                    Node.createURI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), 
-                    Node.createURI("http://rdfs.org/ns/void#Dataset"));
+            		NodeFactory.createURI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), 
+            		NodeFactory.createURI("http://rdfs.org/ns/void#Dataset"));
             Triple triple2 = new Triple(Node.ANY, 
-                    Node.createURI("http://rdfs.org/ns/void#subset"), 
-                    Node.createURI(url));
+            		NodeFactory.createURI("http://rdfs.org/ns/void#subset"), 
+            		NodeFactory.createURI(url));
             Triple triple3 = new Triple(Node.ANY, 
-                    Node.createURI("http://www.w3.org/ns/hydra/core#search"), 
-                    Node.createVariable("_:triplePattern"));
-            Triple triple4 = new Triple(Node.createVariable("_:triplePattern"), 
-                    Node.createURI("http://www.w3.org/ns/hydra/core#mapping"), 
-                    Node.createVariable("_:subject"));
-            Triple triple5 = new Triple(Node.createVariable("_:triplePattern"), 
-                    Node.createURI("http://www.w3.org/ns/hydra/core#mapping"), 
-                    Node.createVariable("_:predicate"));
-            Triple triple6 = new Triple(Node.createVariable("_:triplePattern"), 
-                    Node.createURI("http://www.w3.org/ns/hydra/core#mapping"), 
-                    Node.createVariable("_:object"));
-            Triple triple7 = new Triple(Node.createVariable("_:subject"), 
-                    Node.createURI("http://www.w3.org/ns/hydra/core#property"), 
-                    Node.createURI("http://www.w3.org/1999/02/22-rdf-syntax-ns#subject"));
-            Triple triple8 = new Triple(Node.createVariable("_:predicate"), 
-                    Node.createURI("http://www.w3.org/ns/hydra/core#property"), 
-                    Node.createURI("http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate"));
-            Triple triple9 = new Triple(Node.createVariable("_:object"), 
-                    Node.createURI("http://www.w3.org/ns/hydra/core#property"), 
-                    Node.createURI("http://www.w3.org/1999/02/22-rdf-syntax-ns#object"));
+            		NodeFactory.createURI("http://www.w3.org/ns/hydra/core#search"), 
+            		NodeFactory.createVariable("_:triplePattern"));
+            Triple triple4 = new Triple(NodeFactory.createVariable("_:triplePattern"), 
+            		NodeFactory.createURI("http://www.w3.org/ns/hydra/core#mapping"), 
+            		NodeFactory.createVariable("_:subject"));
+            Triple triple5 = new Triple(NodeFactory.createVariable("_:triplePattern"), 
+            		NodeFactory.createURI("http://www.w3.org/ns/hydra/core#mapping"), 
+                    NodeFactory.createVariable("_:predicate"));
+            Triple triple6 = new Triple(NodeFactory.createVariable("_:triplePattern"), 
+            		NodeFactory.createURI("http://www.w3.org/ns/hydra/core#mapping"), 
+            		NodeFactory.createVariable("_:object"));
+            Triple triple7 = new Triple(NodeFactory.createVariable("_:subject"), 
+            		NodeFactory.createURI("http://www.w3.org/ns/hydra/core#property"), 
+                    NodeFactory.createURI("http://www.w3.org/1999/02/22-rdf-syntax-ns#subject"));
+            Triple triple8 = new Triple(NodeFactory.createVariable("_:predicate"), 
+            		NodeFactory.createURI("http://www.w3.org/ns/hydra/core#property"), 
+                    NodeFactory.createURI("http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate"));
+            Triple triple9 = new Triple(NodeFactory.createVariable("_:object"), 
+            		NodeFactory.createURI("http://www.w3.org/ns/hydra/core#property"), 
+            		NodeFactory.createURI("http://www.w3.org/1999/02/22-rdf-syntax-ns#object"));
             boolean isTPF = graph.contains(triple0) && graph.contains(triple1) && graph.contains(triple2) &&
                     graph.contains(triple3) && graph.contains(triple4) && graph.contains(triple5) &&
                     graph.contains(triple6) && graph.contains(triple7) && graph.contains(triple8) && graph.contains(triple9);
@@ -137,7 +138,7 @@ public class BDBGraphPatternRouter extends OpRouterBase {
         tmp = str.substring(str.indexOf("service <")+"service <".length(), str.indexOf(">", str.lastIndexOf("service <")));
         return tmp;
     }
-    
+    */
 	private void init(DatasetGraph ds) {
 		DatabaseConfig dbConfig = new DatabaseConfig();
 		dbConfig.setAllowCreate(true);
@@ -145,7 +146,7 @@ public class BDBGraphPatternRouter extends OpRouterBase {
 		//System.out.println(op);
 		//materialize the query result here;
 		QueryIterator itr = context.loadGraphPattern(op, ds);
-                if (op.toString().contains("service") && isTPFServer(getServerPath(op))) {
+        /*        if (op.toString().contains("service") && isTPFServer(getServerPath(op))) {
                     String s = op.toString();
                     int start = s.indexOf("(service");
                     int end = s.indexOf('(', s.indexOf("service"));
@@ -154,7 +155,7 @@ public class BDBGraphPatternRouter extends OpRouterBase {
                     LinkedDataFragmentGraph ldfg = new LinkedDataFragmentGraph(getServerPath(op));
                     Model model = ModelFactory.createModelForGraph(ldfg);
                     itr = context.loadGraphPattern(oop, model);
-                }
+                }*/
 		if(itr.hasNext()) {
 			      //System.out.println("has Next");
 			Binding binding = itr.next();

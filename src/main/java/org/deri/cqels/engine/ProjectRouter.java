@@ -7,8 +7,8 @@ import org.deri.cqels.data.ProjectMapping;
 import org.deri.cqels.engine.iterator.MappingIterator;
 import org.deri.cqels.engine.iterator.NullMappingIter;
 
-import com.hp.hpl.jena.sparql.algebra.op.OpProject;
-import com.hp.hpl.jena.sparql.core.Var;
+import org.apache.jena.sparql.algebra.op.OpProject;
+import org.apache.jena.sparql.core.Var;
 
 /**
  * This class implements the router with project operator

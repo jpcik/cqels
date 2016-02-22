@@ -1,6 +1,6 @@
 package org.deri.cqels.engine;
 
-import com.hp.hpl.jena.sparql.algebra.Op;
+import org.apache.jena.sparql.algebra.Op;
 /** 
  * This abstract class has characteristic of a unary router 
  * 

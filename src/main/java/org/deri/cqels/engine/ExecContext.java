@@ -1,25 +1,25 @@
 package org.deri.cqels.engine;
 
-import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.query.Query;
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.sparql.algebra.Algebra;
-import com.hp.hpl.jena.sparql.algebra.Op;
-import com.hp.hpl.jena.sparql.core.DatasetGraph;
-import com.hp.hpl.jena.sparql.engine.ExecutionContext;
-import com.hp.hpl.jena.sparql.engine.QueryIterator;
-import com.hp.hpl.jena.tdb.TDBFactory;
-import com.hp.hpl.jena.tdb.base.file.FileFactory;
-import com.hp.hpl.jena.tdb.base.file.FileSet;
-import com.hp.hpl.jena.tdb.base.file.Location;
-import com.hp.hpl.jena.tdb.index.IndexFactory;
-import com.hp.hpl.jena.tdb.solver.OpExecutorTDB1;
-import com.hp.hpl.jena.tdb.store.DatasetGraphTDB;
-import com.hp.hpl.jena.tdb.store.bulkloader.BulkLoader;
-import com.hp.hpl.jena.tdb.store.nodetable.NodeTable;
-import com.hp.hpl.jena.tdb.store.nodetable.NodeTableNative;
-import com.hp.hpl.jena.tdb.sys.SystemTDB;
-import com.hp.hpl.jena.tdb.transaction.DatasetGraphTransaction;
+import org.apache.jena.graph.NodeFactory;
+import org.apache.jena.query.Query;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.sparql.algebra.Algebra;
+import org.apache.jena.sparql.algebra.Op;
+import org.apache.jena.sparql.core.DatasetGraph;
+import org.apache.jena.sparql.engine.ExecutionContext;
+import org.apache.jena.sparql.engine.QueryIterator;
+import org.apache.jena.tdb.TDBFactory;
+import org.apache.jena.tdb.base.file.FileFactory;
+import org.apache.jena.tdb.base.file.FileSet;
+import org.apache.jena.tdb.base.file.Location;
+import org.apache.jena.tdb.index.IndexFactory;
+import org.apache.jena.tdb.solver.OpExecutorTDB1;
+import org.apache.jena.tdb.store.DatasetGraphTDB;
+import org.apache.jena.tdb.store.bulkloader.BulkLoader;
+import org.apache.jena.tdb.store.nodetable.NodeTable;
+import org.apache.jena.tdb.store.nodetable.NodeTableNative;
+import org.apache.jena.tdb.sys.SystemTDB;
+import org.apache.jena.tdb.transaction.DatasetGraphTransaction;
 import com.sleepycat.je.Environment;
 import com.sleepycat.je.EnvironmentConfig;
 import java.io.File;
@@ -137,8 +137,8 @@ public class ExecContext {
         //FIXME Virtuoso SPARQL Store specific. Must be fixed!
         if (!dataUri.endsWith("sparql-graph-crud")) {
             BulkLoader.loadNamedGraph(dataset,
-                    Node.createURI(graphUri),
-                    Arrays.asList(dataUri), false);
+                    NodeFactory.createURI(graphUri),
+                    Arrays.asList(dataUri), false,false);
         } else {
             /**
              * Uses SPARQL GRAPH protocol
@@ -157,7 +157,7 @@ public class ExecContext {
                     stream = response.getEntity().getContent();
                     BulkLoader.loadNamedGraph(
                             dataset,
-                            Node.createURI(graphUri), stream, false);
+                            NodeFactory.createURI(graphUri), stream, false,false);
                 } else if (code == 404) {
                     System.out.println("SPARQL endpoint [" + dataUri + "] doesn't have [" + graphUri + "] graph!");
                 }
@@ -181,7 +181,7 @@ public class ExecContext {
      * @param dataUri
      */
     public void loadDefaultDataset(String dataUri) {
-        BulkLoader.loadDefaultGraph(this.dataset, Arrays.asList(dataUri), true);
+        BulkLoader.loadDefaultGraph(this.dataset, Arrays.asList(dataUri), true,false);
     }
 
     /**

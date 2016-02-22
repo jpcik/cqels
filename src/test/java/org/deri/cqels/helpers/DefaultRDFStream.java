@@ -1,7 +1,7 @@
 package org.deri.cqels.helpers;
 
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.StmtIterator;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.StmtIterator;
 import org.deri.cqels.engine.ExecContext;
 import org.deri.cqels.engine.RDFStream;
 

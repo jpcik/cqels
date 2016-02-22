@@ -8,7 +8,7 @@ import org.deri.cqels.engine.ExecContext;
 import com.espertech.esper.client.EPStatement;
 import com.espertech.esper.client.EventBean;
 import com.espertech.esper.client.SafeIterator;
-import com.hp.hpl.jena.sparql.core.Quad;
+import org.apache.jena.sparql.core.Quad;
 
 public class MappingIterOnQuadStatement extends MappingIter {
 	SafeIterator<EventBean> safeItr;

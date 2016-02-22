@@ -6,14 +6,14 @@ import java.util.Set;
 
 import org.deri.cqels.engine.Window;
 
-import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.graph.Triple;
-import com.hp.hpl.jena.sparql.algebra.Op;
-import com.hp.hpl.jena.sparql.algebra.op.OpGraph;
-import com.hp.hpl.jena.sparql.algebra.op.OpQuadPattern;
-import com.hp.hpl.jena.sparql.algebra.op.OpTriple;
-import com.hp.hpl.jena.sparql.core.BasicPattern;
-import com.hp.hpl.jena.sparql.core.Var;
+import org.apache.jena.graph.Node;
+import org.apache.jena.graph.Triple;
+import org.apache.jena.sparql.algebra.Op;
+import org.apache.jena.sparql.algebra.op.OpGraph;
+import org.apache.jena.sparql.algebra.op.OpQuadPattern;
+import org.apache.jena.sparql.algebra.op.OpTriple;
+import org.apache.jena.sparql.core.BasicPattern;
+import org.apache.jena.sparql.core.Var;
 
 public class OpStream extends OpQuadPattern {
 	Window window;

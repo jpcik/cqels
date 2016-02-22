@@ -3,7 +3,7 @@ package org.deri.cqels.engine;
 import org.deri.cqels.data.Mapping;
 import org.deri.cqels.engine.iterator.MappingIterator;
 
-import com.hp.hpl.jena.sparql.algebra.Op;
+import org.apache.jena.sparql.algebra.Op;
 /**
  *This interface contains the behaviours of a router which is responsible to receive a mapping and route it
  *to the higher node in the router-node tree 

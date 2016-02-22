@@ -1,11 +1,12 @@
 package org.deri.cqels;
 
-import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
-import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.graph.Triple;
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.Statement;
+import org.apache.jena.datatypes.xsd.XSDDatatype;
+import org.apache.jena.graph.Node;
+import org.apache.jena.graph.NodeFactory;
+import org.apache.jena.graph.Triple;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Statement;
 import static com.jayway.awaitility.Awaitility.await;
 import java.io.File;
 import java.io.InputStream;
@@ -57,9 +58,9 @@ public class SimpleQueriesTest {
         query.register(listener);
 
         stream.stream(new Triple(
-                Node.createURI("http://example.org/resource/1"),
-                Node.createURI("http://example.org/ontology#hasValue"),
-                Node.createLiteral("123")));
+                NodeFactory.createURI("http://example.org/resource/1"),
+                NodeFactory.createURI("http://example.org/ontology#hasValue"),
+                NodeFactory.createLiteral("123")));
 
         List<Mapping> mappings = await().until(listener, hasSize(1));
         List<Node> nodes = Helpers.toNodeList(context, mappings.get(0));
@@ -85,9 +86,9 @@ public class SimpleQueriesTest {
         query.register(listener);
 
         stream.stream(new Triple(
-                Node.createURI("http://www.w3.org/2000/01/rdf-schema#subClassOf"),
-                Node.createURI("http://example.org/ontology#hasValue"),
-                Node.createLiteral("123")));
+                NodeFactory.createURI("http://www.w3.org/2000/01/rdf-schema#subClassOf"),
+                NodeFactory.createURI("http://example.org/ontology#hasValue"),
+                NodeFactory.createLiteral("123")));
         List<Mapping> mappings = await().until(listener, hasSize(1));
         List<Node> nodes = Helpers.toNodeList(context, mappings.get(0));
 
@@ -117,9 +118,9 @@ public class SimpleQueriesTest {
         query.register(listener);
 
         stream.stream(new Triple(
-                Node.createURI("http://dbpedia.org/property/species"),
-                Node.createURI("http://example.org/ontology#hasNephewsValue"),
-                Node.createLiteral("3")));
+        		NodeFactory.createURI("http://dbpedia.org/property/species"),
+        		NodeFactory.createURI("http://example.org/ontology#hasNephewsValue"),
+        		NodeFactory.createLiteral("3")));
         List<Mapping> mappings = await().until(listener, hasSize(1));
         List<Node> nodes = Helpers.toNodeList(context, mappings.get(0));
 
@@ -149,9 +150,9 @@ public class SimpleQueriesTest {
         query.register(listener);
 
         stream.stream(new Triple(
-                Node.createURI("http://purl.org/dc/terms/accessRights"),
-                Node.createURI("http://example.org/ontology#hasValue"),
-                Node.createLiteral("123")));
+        		NodeFactory.createURI("http://purl.org/dc/terms/accessRights"),
+        		NodeFactory.createURI("http://example.org/ontology#hasValue"),
+        		NodeFactory.createLiteral("123")));
         List<Mapping> mappings = await().until(listener, hasSize(1));
         List<Node> nodes = Helpers.toNodeList(context, mappings.get(0));
 
@@ -180,9 +181,9 @@ public class SimpleQueriesTest {
         query.register(listener);
 
         stream.stream(new Triple(
-                Node.createURI("http://dbpedia.org/ontology/author"),
-                Node.createURI("http://example.org/ontology#hasValue"),
-                Node.createLiteral("1")));
+        		NodeFactory.createURI("http://dbpedia.org/ontology/author"),
+        		NodeFactory.createURI("http://example.org/ontology#hasValue"),
+        		NodeFactory.createLiteral("1")));
         List<Mapping> mappings = await().until(listener, hasSize(1));
         List<Node> nodes = Helpers.toNodeList(context, mappings.get(0));
 
@@ -210,9 +211,9 @@ public class SimpleQueriesTest {
         query.register(listener);
 
         stream.stream(new Triple(
-                Node.createURI("http://example.org/resource/1"),
-                Node.createURI("http://example.org/ontology#hasValue"),
-                Node.createLiteral("123")));
+        		NodeFactory.createURI("http://example.org/resource/1"),
+        		NodeFactory.createURI("http://example.org/ontology#hasValue"),
+        		NodeFactory.createLiteral("123")));
 
         List<Mapping> mappings = await().until(listener, hasSize(1));
         List<Node> nodes = Helpers.toNodeList(context, mappings.get(0));
@@ -240,9 +241,9 @@ public class SimpleQueriesTest {
         query.register(listener);
 
         stream.stream(new Triple(
-                Node.createURI("http://example.org/resource/1"),
-                Node.createURI("http://example.org/ontology#hasValue"),
-                Node.createLiteral("123")));
+        		NodeFactory.createURI("http://example.org/resource/1"),
+        		NodeFactory.createURI("http://example.org/ontology#hasValue"),
+        		NodeFactory.createLiteral("123")));
 
         List<Mapping> mappings = await().until(listener, hasSize(1));
         List<Node> nodes = Helpers.toNodeList(context, mappings.get(0));
@@ -272,13 +273,13 @@ public class SimpleQueriesTest {
         query.register(listener);
 
         stream_1.stream(new Triple(
-                Node.createURI("http://example.org/resource/1"),
-                Node.createURI("http://example.org/ontology#hasValue"),
-                Node.createLiteral("123")));
+        		NodeFactory.createURI("http://example.org/resource/1"),
+        		NodeFactory.createURI("http://example.org/ontology#hasValue"),
+        		NodeFactory.createLiteral("123")));
         stream_2.stream(new Triple(
-                Node.createURI("http://example.org/resource/2"),
-                Node.createURI("http://example.org/ontology#hasValue"),
-                Node.createLiteral("321")));
+        		NodeFactory.createURI("http://example.org/resource/2"),
+        		NodeFactory.createURI("http://example.org/ontology#hasValue"),
+        		NodeFactory.createLiteral("321")));
 
         List<Mapping> mappings = await().until(listener, hasSize(2));
 
@@ -309,9 +310,9 @@ public class SimpleQueriesTest {
         query.register(listener);
 
         stream.stream(new Triple(
-                Node.createURI("http://example.org/resource/1"),
-                Node.createURI("http://example.org/ontology#hasValue"),
-                Node.createLiteral("123")));
+        		NodeFactory.createURI("http://example.org/resource/1"),
+                NodeFactory.createURI("http://example.org/ontology#hasValue"),
+                NodeFactory.createLiteral("123")));
 
         List<Triple> graph = await().until(listener, hasSize(1));
         assertEquals("http://example.org/resource/1",
@@ -341,9 +342,9 @@ public class SimpleQueriesTest {
         query.register(listener);
 
         stream.stream(new Triple(
-                Node.createURI("http://example.org/resource/1"),
-                Node.createURI("http://example.org/ontology#hasValue"),
-                Node.createLiteral("123")));
+        		NodeFactory.createURI("http://example.org/resource/1"),
+        		NodeFactory.createURI("http://example.org/ontology#hasValue"),
+        		NodeFactory.createLiteral("123")));
 
         List<Mapping> mappings = await().until(listener, hasSize(1));
         List<Node> nodes = Helpers.toNodeList(context, mappings.get(0));
@@ -402,17 +403,17 @@ public class SimpleQueriesTest {
         List<Triple> graph = await().until(listener, hasSize(3));
         System.out.println(Arrays.toString(graph.toArray()));
         assertTrue(graph.contains(new Triple(
-                Node.createURI("http://purl.org/meters/mercury230_14759537/alerts/2014-07-16T05:50:20.890Z"),
-                Node.createURI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),
-                Node.createURI("http://purl.org/daafse/alerts#TooHighVoltageValue"))));
+        		NodeFactory.createURI("http://purl.org/meters/mercury230_14759537/alerts/2014-07-16T05:50:20.890Z"),
+        		NodeFactory.createURI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),
+        		NodeFactory.createURI("http://purl.org/daafse/alerts#TooHighVoltageValue"))));
         assertTrue(graph.contains(new Triple(
-                Node.createURI("http://purl.org/meters/mercury230_14759537/alerts/2014-07-16T05:50:20.890Z"),
-                Node.createURI("http://www.loa-cnr.it/ontologies/DUL.owl#hasEventDate"),
-                Node.createLiteral("2014-07-16T05:50:20.890Z", XSDDatatype.XSDdateTime))));
+        		NodeFactory.createURI("http://purl.org/meters/mercury230_14759537/alerts/2014-07-16T05:50:20.890Z"),
+        		NodeFactory.createURI("http://www.loa-cnr.it/ontologies/DUL.owl#hasEventDate"),
+        		NodeFactory.createLiteral("2014-07-16T05:50:20.890Z", XSDDatatype.XSDdateTime))));
         assertTrue(graph.contains(new Triple(
-                Node.createURI("http://purl.org/meters/mercury230_14759537/alerts/2014-07-16T05:50:20.890Z"),
-                Node.createURI("http://www.loa-cnr.it/ontologies/DUL.owl#involvesAgent"),
-                Node.createURI("http://purl.org/meters/mercury230_14759537"))));
+        		NodeFactory.createURI("http://purl.org/meters/mercury230_14759537/alerts/2014-07-16T05:50:20.890Z"),
+        		NodeFactory.createURI("http://www.loa-cnr.it/ontologies/DUL.owl#involvesAgent"),
+        		NodeFactory.createURI("http://purl.org/meters/mercury230_14759537"))));
     }
 
     @Test(timeout = 10000)

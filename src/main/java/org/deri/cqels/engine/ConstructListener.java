@@ -6,11 +6,11 @@ import java.util.List;
 
 import org.deri.cqels.data.Mapping;
 
-import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.graph.Triple;
-import com.hp.hpl.jena.graph.TripleIterator;
-import com.hp.hpl.jena.sparql.core.BasicPattern;
-import com.hp.hpl.jena.sparql.syntax.Template;
+import org.apache.jena.graph.Node;
+import org.apache.jena.graph.Triple;
+import org.apache.jena.graph.TripleIterator;
+import org.apache.jena.sparql.core.BasicPattern;
+import org.apache.jena.sparql.syntax.Template;
 /**
  * This class processes the mapping result for the CONSTRUCT-type query form
  * @author		Danh Le Phuoc

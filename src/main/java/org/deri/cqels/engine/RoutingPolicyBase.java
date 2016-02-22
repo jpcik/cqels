@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 import org.deri.cqels.data.Mapping;
 
-import com.hp.hpl.jena.query.Query;
+import org.apache.jena.query.Query;
 /** 
  * This class is the base class to build an execution plan
  * 

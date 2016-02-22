@@ -3,8 +3,8 @@ package org.deri.cqels.data;
 import java.util.Iterator;
 
 import org.deri.cqels.engine.ExecContext;
-import com.hp.hpl.jena.sparql.core.Quad;
-import com.hp.hpl.jena.sparql.core.Var;
+import org.apache.jena.sparql.core.Quad;
+import org.apache.jena.sparql.core.Var;
 
 public class MappingQuad extends MappingBase {
 	

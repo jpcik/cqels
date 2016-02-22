@@ -3,7 +3,7 @@ package org.deri.cqels.engine.iterator;
 import org.deri.cqels.data.Mapping;
 import org.deri.cqels.engine.ExecContext;
 import org.deri.cqels.engine.OpRouter;
-import com.hp.hpl.jena.sparql.ARQInternalErrorException;
+import org.apache.jena.sparql.ARQInternalErrorException;
 
 public class MappingNestedLoopEqJoin extends MappingIter {
 	private MappingIterator curItr,leftItr;
