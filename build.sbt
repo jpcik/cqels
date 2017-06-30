@@ -8,7 +8,7 @@ scalaVersion := "2.11.6"
   
 libraryDependencies ++= Seq(
   "org.apache.jena" % "apache-jena-libs" % "3.0.1" exclude("log4j","log4j") exclude("slf4j-api","org.slf4j"),
-  "com.sleepycat" % "je" % "4.1.10",
+  "com.sleepycat" % "je" % "5.0.73",
   "com.espertech" % "esper" % "4.2.0" ,
   "com.jayway.awaitility" % "awaitility" % "1.6.0",
   //"org.linkeddatafragments" % "ldf-client" % "0.1.1-SNAPSHOT",
