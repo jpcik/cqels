@@ -49,4 +49,8 @@ public class ContinuousSelect extends OpRouter1 {
         listeners.clear();
         context.policy().removeRouter(sub(), this);
     }
+    
+    public void unregister(ContinuousListener lit) {
+    	listeners.remove(lit);
+    }
 }
